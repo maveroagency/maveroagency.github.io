@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://formspree.io data: blob:; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Privacy policy | Mavero</title>
 <meta name="description" content="Mavero privacy policy: what data the forms collect, why, where it is kept, and your rights.">
 <link rel="canonical" href="https://maveroagency.com/en/privacy.html">
@@ -709,13 +709,13 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
     <p><span lang="en">To review your application, reply to you and arrange a call if the project is a fit. For job applications: to assess your application and contact you. We process your data on the basis of the consent you give when you submit.</span></p>
 
     <h2><span lang="en">Where it is kept and who sees it</span></h2>
-    <p><span lang="en">Project applications go to creative@maveroagency.com and job applications to info@maveroagency.com, and only the Mavero team sees them. We never sell or share your data, except with the provider that delivers the form to our inbox: Formspree.</span></p>
+    <p><span lang="en">Project applications go to creative@maveroagency.com and job applications to info@maveroagency.com, and only the Mavero team sees them. We never sell or share your data, except with the provider that delivers the form to our inbox: Formspree, a US company that stores submissions on Amazon Web Services servers in the United States.</span></p>
 
     <h2><span lang="en">Transfers outside your country</span></h2>
-    <p><span lang="en">We work from Egypt, so if you are in Saudi Arabia or the Gulf your data is processed in Egypt. By submitting the form you agree to this transfer for the purpose of answering you.</span></p>
+    <p><span lang="en">We work from Egypt, and your submission passes through Formspree in the United States before it reaches our inbox. So if you are in Saudi Arabia or the Gulf, your data is transferred to the United States and Egypt. By submitting the form you agree to this transfer for the purpose of answering you.</span></p>
 
     <h2><span lang="en">How long we keep it</span></h2>
-    <p><span lang="en">We keep project applications for 12 months and job applications for 6 months, then delete them.</span></p>
+    <p><span lang="en">We keep project applications for 12 months and job applications for 6 months, then delete them from our inbox and from our Formspree account.</span></p>
 
     <h2><span lang="en">Your rights</span></h2>
     <p><span lang="en">You can ask for a copy of your data, correct it, delete it or withdraw your consent at any time. Write to creative@maveroagency.com and we will respond within 30 days.</span></p>
@@ -804,7 +804,6 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
   clock();setInterval(clock,30000);
 })();
 </script>
-<script src="/a/glass-icon.js" defer></script>
-<script>window.addEventListener('load',function(){var h=document.querySelector('[data-glass]');if(h&&window.MaveroGlass)try{MaveroGlass.mount(h,{opacity:.36,env:2.4,depth:0.85,period:14000,onready:function(){h.classList.add('live')}})}catch(e){}})</script>
+<script>(function(){var h=document.querySelector('[data-glass]');if(!h)return;var done=0;function go(){if(done)return;done=1;var s=document.createElement('script');s.src='/a/glass-icon.js';s.onload=function(){if(window.MaveroGlass)try{MaveroGlass.mount(h,{opacity:.36,env:2.4,depth:0.85,period:14000,onready:function(){h.classList.add('live')}})}catch(e){}};document.head.appendChild(s)}if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){o.disconnect();go()}},{rootMargin:'600px 0px'});o.observe(h)}else window.addEventListener('load',go)})()</script>
 </body>
 </html>

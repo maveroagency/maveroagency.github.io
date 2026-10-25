@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://formspree.io data: blob:; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin">
 <title>سياسة الخصوصية | مافيرو</title>
 <meta name="description" content="سياسة خصوصية مافيرو: ما نجمعه من بيانات عبر النماذج، ولماذا، وأين تُحفظ، وحقوقك.">
 <link rel="canonical" href="https://maveroagency.com/ar/privacy.html">
@@ -709,13 +709,13 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
     <p><span lang="ar">لمراجعة طلبك والرد عليه، وترتيب مكالمة إن كان المشروع مناسبًا. ولطلبات التوظيف: لتقييم طلبك والتواصل معك. نعالج بياناتك بناءً على موافقتك عند الإرسال.</span></p>
 
     <h2><span lang="ar">أين تُحفظ ومن يراها</span></h2>
-    <p><span lang="ar">تصل طلبات المشاريع إلى creative@maveroagency.com، وطلبات التوظيف إلى info@maveroagency.com، ويطّلع عليها فريق مافيرو فقط. لا نبيع بياناتك ولا نشاركها، إلا مع مزوّد الخدمة الذي يوصل النموذج إلى بريدنا: Formspree.</span></p>
+    <p><span lang="ar">تصل طلبات المشاريع إلى creative@maveroagency.com، وطلبات التوظيف إلى info@maveroagency.com، ويطّلع عليها فريق مافيرو فقط. لا نبيع بياناتك ولا نشاركها، إلا مع مزوّد الخدمة الذي يوصل النموذج إلى بريدنا: Formspree، وهي شركة أمريكية تحفظ الطلبات على خوادم Amazon Web Services في الولايات المتحدة.</span></p>
 
     <h2><span lang="ar">نقل البيانات خارج بلدك</span></h2>
-    <p><span lang="ar">نعمل من مصر، فإن كنت في السعودية أو الخليج تُعالج بياناتك في مصر. بإرسالك النموذج توافق على هذا النقل لغرض الرد على طلبك.</span></p>
+    <p><span lang="ar">نعمل من مصر، وتمر طلباتك عبر Formspree في الولايات المتحدة قبل أن تصل إلى بريدنا. فإن كنت في السعودية أو الخليج، تُنقل بياناتك إلى الولايات المتحدة ومصر. بإرسالك النموذج توافق على هذا النقل لغرض الرد على طلبك.</span></p>
 
     <h2><span lang="ar">مدة الحفظ</span></h2>
-    <p><span lang="ar">نحتفظ بطلبات المشاريع ١٢ شهرًا، وبطلبات التوظيف ٦ شهور، ثم نحذفها.</span></p>
+    <p><span lang="ar">نحتفظ بطلبات المشاريع ١٢ شهرًا، وبطلبات التوظيف ٦ شهور، ثم نحذفها من بريدنا ومن حساب Formspree.</span></p>
 
     <h2><span lang="ar">حقوقك</span></h2>
     <p><span lang="ar">يمكنك طلب نسخة من بياناتك، أو تصحيحها، أو حذفها، أو سحب موافقتك في أي وقت. راسلنا على creative@maveroagency.com ونرد خلال 30 يومًا.</span></p>
@@ -804,7 +804,6 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
   clock();setInterval(clock,30000);
 })();
 </script>
-<script src="/a/glass-icon.js" defer></script>
-<script>window.addEventListener('load',function(){var h=document.querySelector('[data-glass]');if(h&&window.MaveroGlass)try{MaveroGlass.mount(h,{opacity:.36,env:2.4,depth:0.85,period:14000,onready:function(){h.classList.add('live')}})}catch(e){}})</script>
+<script>(function(){var h=document.querySelector('[data-glass]');if(!h)return;var done=0;function go(){if(done)return;done=1;var s=document.createElement('script');s.src='/a/glass-icon.js';s.onload=function(){if(window.MaveroGlass)try{MaveroGlass.mount(h,{opacity:.36,env:2.4,depth:0.85,period:14000,onready:function(){h.classList.add('live')}})}catch(e){}};document.head.appendChild(s)}if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){o.disconnect();go()}},{rootMargin:'600px 0px'});o.observe(h)}else window.addEventListener('load',go)})()</script>
 </body>
 </html>
