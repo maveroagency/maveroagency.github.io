@@ -859,5 +859,6 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
 })();
 </script>
 <script>(function(){var h=document.querySelector('[data-glass]');if(!h)return;var done=0;function go(){if(done)return;done=1;var s=document.createElement('script');s.src='/a/glass-icon.js';s.onload=function(){if(window.MaveroGlass)try{MaveroGlass.mount(h,{opacity:.36,env:2.4,depth:0.85,period:14000,onready:function(){h.classList.add('live')}})}catch(e){}};document.head.appendChild(s)}if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){o.disconnect();go()}},{rootMargin:'600px 0px'});o.observe(h)}else window.addEventListener('load',go)})()</script>
+<style id="type-spacing">:root[lang="en"] h1,:root[lang="en"] h2,:root[lang="en"] .clarity .word{letter-spacing:-.015em}:root[lang="en"] .prose h2{letter-spacing:-.01em}.cs-h{letter-spacing:-.025em}.ptitle{letter-spacing:-.015em}.face.back .num{letter-spacing:-.02em}</style>
 </body>
 </html>
