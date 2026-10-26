@@ -726,7 +726,20 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
 .wa:hover{background:var(--electric);transform:translateY(-2px)}
 @media (max-width:560px){.wa{padding:0;width:48px;justify-content:center}.wa>span{display:none}.foot{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
 </style>
-<style id="img-guard">img,video{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none}</style><script>document.addEventListener('contextmenu',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'||n.tagName==='CANVAS'))e.preventDefault()});document.addEventListener('dragstart',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'))e.preventDefault()})</script></head>
+<style id="img-guard">img,video{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none}/* ===== Footer pass: shorter wordmark row, Behance features ===== */
+.board .wm,.board .ac{min-height:228px}
+.board .wm .g3d{width:clamp(84px,8.4vw,122px)}
+.board .social{align-items:center}
+.board .social .feat{margin-inline-start:auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;text-decoration:none}
+.board .social .feat>span{font:500 var(--s-small) var(--f);color:#4A5874}
+.board .social .feat b{display:inline-flex;align-items:center;gap:7px;padding:5px 11px 5px 10px;border-radius:8px;background:#fff;border:1px solid var(--tint-2);
+  font:600 13px var(--f-en);color:var(--navy);letter-spacing:.01em;transition:border-color .2s,color .2s}
+.board .social .feat b svg{color:var(--electric);flex:none}
+.board .social .feat:hover b{border-color:rgba(38,67,209,.35);color:var(--electric)}
+.board .social .feat:focus-visible{outline:2px solid var(--electric);outline-offset:4px;border-radius:8px}
+@media (max-width:900px){.board .wm,.board .ac{min-height:150px}.board .social .feat{margin-inline-start:0;flex-basis:100%}}
+/* ===== /Footer pass ===== */
+</style><script>document.addEventListener('contextmenu',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'||n.tagName==='CANVAS'))e.preventDefault()});document.addEventListener('dragstart',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'))e.preventDefault()})</script></head>
 <body>
 <a class="skip" href="#main"><span lang="en">Skip to content</span></a>
 <header class="hdr wrap" id="hdr" data-ink="light">
@@ -964,6 +977,7 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
       <a href="https://www.instagram.com/mavero.agency/" target="_blank" rel="noopener">Instagram @mavero.agency</a>
       <a href="https://x.com/maveroagency" target="_blank" rel="noopener">X @maveroagency</a>
       <a href="https://www.linkedin.com/company/maveroagency/" target="_blank" rel="noopener">LinkedIn @maveroagency</a>
+      <!-- FEAT-START --><a class="feat" href="https://www.behance.net/mavero-agency" target="_blank" rel="noopener" aria-label="Featured on Behance: Graphic Design, Illustrator"><span><span lang="en">Featured on Behance</span></span><b><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M1 0h10a1 1 0 0 1 1 1v14.2l-6-3.9-6 3.9V1a1 1 0 0 1 1-1z" fill="currentColor"/></svg>Graphic Design</b><b><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M1 0h10a1 1 0 0 1 1 1v14.2l-6-3.9-6 3.9V1a1 1 0 0 1 1-1z" fill="currentColor"/></svg>Illustrator</b></a><!-- FEAT-END -->
     </div>
     <div class="legal glass">
       <span><b dir="ltr">Mavero Graphic Design Services</b></span>
