@@ -244,6 +244,13 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
 .deck.reading .hint{opacity:0}
 @media (hover:none){.deck .hint .hv{display:none}}
 @media (hover:hover){.deck .hint .tp{display:none}}
+/* Phone: the deck sits stacked in the middle, then deals out into a row you swipe; the card in the centre shows its content */
+.deck.phone{--cw:min(80vw,330px);display:flex;align-items:flex-start;gap:12px;height:auto;margin:32px calc(var(--gut) * -1) 0;padding:16px calc((100vw - var(--cw)) / 2) 48px!important;overflow-x:hidden;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;transition:none}
+.deck.phone::-webkit-scrollbar{display:none}
+.deck.phone.open{overflow-x:auto}
+.deck.phone .mcard{flex:0 0 var(--cw);width:var(--cw);scroll-snap-align:center;transform:translate(var(--mx,0px),var(--my,0px)) rotate(var(--rot,0deg));transition:transform .9s var(--ease) var(--dc,0ms)}
+.deck.phone.open .mcard{transform:none;transition-delay:var(--do,0ms)}
+.deck.phone .mcard .inner,.deck.phone .face.front{position:absolute;inset:0}
 
 /* Shared: a chapter set like the business card, electric at the top settling into ice, with a curved top edge */
 .card-field{position:relative;z-index:1;margin-top:-96px;border-radius:50% 50% 0 0 / 96px 96px 0 0;
@@ -922,7 +929,23 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
   var deck=document.getElementById('deck'),mcards=[].slice.call(deck.querySelectorAll('.mcard'));
   var fan=[[-7,0],[-2.5,8],[3,14],[7.5,20]];
   var mobile=function(){return window.innerWidth<=900};
+  var phone=function(){return window.innerWidth<=600};
   function layoutDeck(){
+    deck.classList.toggle('phone',phone());
+    if(phone()){
+      // Phone: equal card heights from the longest content, then stack every card on the first one, in the middle of the screen
+      deck.style.height='';
+      mcards.forEach(function(c){c.style.height='';c.style.removeProperty('--mx');c.style.removeProperty('--my')});
+      var hmax=0;mcards.forEach(function(c){var f=c.querySelector('.face.front');f.style.position='relative';hmax=Math.max(hmax,f.offsetHeight);f.style.position=''});
+      var x0=mcards[0].offsetLeft,prot=[0,-3,3,-1.5];
+      mcards.forEach(function(c,i){
+        c.style.height=hmax+'px';c.style.setProperty('--mx',(x0-c.offsetLeft)+'px');c.style.setProperty('--my',(i*8)+'px');c.style.setProperty('--rot',prot[i]+'deg');
+        c.style.setProperty('--z',4-i);c.style.setProperty('--do',(i*110)+'ms');c.style.setProperty('--dc','0ms');
+      });
+      if(!deck.classList.contains('open'))deck.scrollLeft=0;
+      return;
+    }
+    mcards.forEach(function(c){c.style.height='';c.style.removeProperty('--mx')});
     if(mobile()){
       // Phone: the cards sit stacked on the first one, and deal out in a column when the deck scrolls into view
       mcards.forEach(function(c){c.style.removeProperty('--my');c.style.removeProperty('--rot')});
@@ -953,11 +976,11 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
     deck.classList.toggle('reading',n>-1);
   }
   function openDeck(o){
-    if(mobile()){if(!o)return;deck.style.height=deck.dataset.full+'px'}
+    if(mobile()){if(!o)return;if(!phone())deck.style.height=deck.dataset.full+'px'}
     if(o&&!deck.classList.contains('open'))spreadAt=performance.now()+(reduce?0:700);
     if(!o)flipTo(-1);
     deck.classList.toggle('open',o);
-    if(o&&mobile())setTimeout(stepCheck,1300);
+    if(o&&mobile())setTimeout(phone()?hCheck:stepCheck,1300);
   }
   // Desktop: the card under the pointer flips, once the deck has finished spreading
   function cardAt(x,y){
@@ -979,6 +1002,7 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
   deck.addEventListener('focus',function(){openDeck(true)});deck.addEventListener('blur',function(){openDeck(false)});
   // Tablet without hover: first tap spreads the deck, then a tap on a card flips it
   deck.addEventListener('click',function(e){
+    if(phone()&&deck.classList.contains('open')){var p=cardAt(e.clientX,e.clientY);if(p>-1)flipTo(p===flipped?-1:p);return}
     if(fine||mobile())return;
     if(!deck.classList.contains('open')){openDeck(true);return}
     var n=cardAt(e.clientX,e.clientY);if(n<0){openDeck(false);return}
@@ -986,7 +1010,7 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
   });
   if(mobile()){
     if(reduce||!('IntersectionObserver' in window))openDeck(true);
-    else{var dio=new IntersectionObserver(function(es){if(es[0].isIntersecting){openDeck(true);dio.disconnect()}},{rootMargin:'0px 0px -38% 0px'});dio.observe(deck)}
+    else{var dio=new IntersectionObserver(function(es){if(es[0].isIntersecting){openDeck(true);dio.disconnect()}},{rootMargin:phone()?'0px 0px -45% 0px':'0px 0px -38% 0px'});dio.observe(deck)}
   }
   deck.addEventListener('keydown',function(e){
     if(e.key==='Enter'||e.key===' '){e.preventDefault();openDeck(!deck.classList.contains('open'));return}
@@ -998,11 +1022,19 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
   });
   // Phone: the card crossing the middle of the screen flips; it turns back once it moves away and the next one takes over
   function stepCheck(){
-    if(!mobile()||!deck.classList.contains('open'))return;
+    if(!mobile()||phone()||!deck.classList.contains('open'))return;
     var mid=window.innerHeight/2,best=-1,bd=1e9;
     mcards.forEach(function(c,i){var r=c.getBoundingClientRect(),d=Math.abs(r.top+r.height/2-mid);if(d<bd&&d<r.height/2+12){bd=d;best=i}});
     flipTo(best);
   }
+  // Phone: once the swipe settles, the card in the centre of the row flips to its content; a tap flips it back
+  function hCheck(){
+    if(!phone()||!deck.classList.contains('open'))return;
+    var r=deck.getBoundingClientRect(),mid=r.left+r.width/2,best=-1,bd=1e9;
+    mcards.forEach(function(c,i){var b=c.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-mid);if(d<bd&&d<b.width/2){bd=d;best=i}});
+    flipTo(best);
+  }
+  var hT;deck.addEventListener('scroll',function(){clearTimeout(hT);hT=setTimeout(hCheck,110)},{passive:true});
 
   // Chaos to clarity: particles gather into the dragonfly as you scroll
   var box=document.getElementById('canvasBox'),cv=document.getElementById('fly'),sec=document.getElementById('clarity');
