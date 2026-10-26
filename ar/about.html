@@ -588,7 +588,55 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
 .wa:hover{background:var(--electric);transform:translateY(-2px)}
 @media (max-width:560px){.wa{padding:0;width:48px;justify-content:center}.wa>span{display:none}.foot{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
 </style>
-<style id="img-guard">img,video{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none}</style><script>document.addEventListener('contextmenu',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'||n.tagName==='CANVAS'))e.preventDefault()});document.addEventListener('dragstart',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'))e.preventDefault()})</script></head>
+<style id="img-guard">img,video{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none}
+
+/* ===== Archive: loose prints on the tint, rows of four, fixed tilt per photo ===== */
+.clients{padding-bottom:clamp(96px,11vw,170px)}
+.archive{background:var(--tint);color:var(--navy);padding-bottom:calc(clamp(96px,11vw,170px) + 52px)}
+.prints{list-style:none;padding:0;margin:0 auto;max-width:1180px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:52px 40px;align-items:start}
+.print{justify-self:var(--js);width:calc(var(--s) * 100%);transform:translateY(var(--dy)) rotate(var(--rt));transition:transform .5s var(--ease)}
+.print button{all:unset;box-sizing:border-box;display:block;width:100%;padding:10px 10px 0;background:#fff;border-radius:3px;cursor:zoom-in;
+  box-shadow:0 1px 2px rgba(29,41,63,.10),0 14px 32px -16px rgba(29,41,63,.38);transition:box-shadow .5s var(--ease)}
+.print:hover{transform:translateY(var(--dy)) rotate(0) scale(1.04);position:relative;z-index:2}
+.print:hover button{box-shadow:0 2px 4px rgba(29,41,63,.12),0 28px 56px -22px rgba(29,41,63,.5)}
+.print button:focus-visible{outline:2px solid var(--electric);outline-offset:4px}
+.print img{display:block;width:100%;height:auto;object-fit:cover;background:var(--tint-2)}
+.print .cap{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:10px 2px 12px;font-size:14px;line-height:1.4;color:var(--navy)}
+.print .cap b{font-weight:500;min-width:0}
+.print .cap small{display:block;font-size:12px;font-weight:400;color:#6B7590;margin-top:2px}
+.print .cap time{color:#6B7590;flex:none;font-variant-numeric:tabular-nums}
+.print.extra{display:none}
+.prints.all .print.extra{display:block}
+.afoot{max-width:1180px;margin:56px auto 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;
+  padding-top:18px;border-top:1px solid rgba(29,41,63,.14);font-size:var(--s-small);color:#4A5874}
+.afoot button{font:600 15px var(--f);color:var(--electric);background:transparent;border:1px solid rgba(38,67,209,.4);border-radius:999px;padding:10px 22px;cursor:pointer}
+.afoot button:hover{background:rgba(38,67,209,.07)}
+.afoot button:focus-visible{outline:2px solid var(--electric);outline-offset:3px}
+.aview{position:fixed;inset:0;z-index:200;background:rgba(18,26,43,.9);display:grid;place-items:center;
+  padding:max(20px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(20px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.aview[hidden]{display:none}
+.aview figure{margin:0;display:grid;gap:12px;justify-items:center;max-width:min(92vw,960px)}
+.aview img{max-height:78vh;width:auto;max-width:100%;border:8px solid #fff;border-radius:3px}
+.aview figcaption{color:#E8EEF8;font-size:15px;text-align:center}
+.aview button{position:absolute;display:grid;place-items:center;width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+.aview button:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+.aview .ax{top:max(16px,env(safe-area-inset-top,0px));inset-inline-end:max(16px,env(safe-area-inset-right,0px))}
+.aview .ap{top:50%;inset-inline-start:max(12px,env(safe-area-inset-left,0px))}
+.aview .an{top:50%;inset-inline-end:max(12px,env(safe-area-inset-right,0px))}
+[dir="rtl"] .aview .ap svg,[dir="rtl"] .aview .an svg{transform:scaleX(-1)}
+@media (max-width:900px){.prints{gap:44px 28px}}
+@media (max-width:700px){
+  .prints{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 22px}
+  .print{width:100%;transform:translateY(calc(var(--dy) * .6)) rotate(calc(var(--rt) * .6))}
+  .print:hover{transform:translateY(calc(var(--dy) * .6)) rotate(0) scale(1.03)}
+  .print button{padding:7px 7px 0}
+  .print .cap{flex-direction:column;gap:0;font-size:13px;padding:8px 1px 10px}
+  .print .cap small{font-size:11px}
+  .afoot{margin-top:40px}
+}
+@media (prefers-reduced-motion:reduce){.print,.print button{transition:none}}
+/* ===== /Archive ===== */
+</style><script>document.addEventListener('contextmenu',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'||n.tagName==='CANVAS'))e.preventDefault()});document.addEventListener('dragstart',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'))e.preventDefault()})</script></head>
 <body>
 <a class="skip" href="#main"><span lang="ar">تخطَّ إلى المحتوى</span></a>
 <header class="hdr wrap" id="hdr" data-ink="light">
@@ -739,6 +787,51 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
     <li class="next" data-rise style="--i:6"><a href="index.html#brief"><span lang="ar">مشروعك<br>التالي؟</span></a></li>
   </ul>
 </section>
+
+
+<!-- ARCHIVE-START (generated by archive-pass.py) -->
+<section class="archive field wrap" id="archive" data-ink="dark" aria-labelledby="h-archive">
+  <div class="chead">
+    <span class="kick" data-rise><i></i>05 · ARCHIVE</span>
+    <h2 id="h-archive" data-rise style="--i:1"><span lang="ar">من أرشيفنا</span></h2>
+    <p data-rise style="--i:2"><span lang="ar">لحظات من الطريق: مدن عملنا فيها، وأعمال صمّمناها ثم أمسكناها بأيدينا.</span></p>
+  </div>
+  <ul class="prints" id="prints" aria-label="أرشيف الصور">
+    <li class="print" style="--rt:0.46deg;--dy:2.7px;--s:0.859;--js:center"><button type="button" data-full="/a/archive/egypt-2024.webp" data-alt="مصر، ٢٠٢٤" data-cap="مصر · ٢٠٢٤ · تكريم عن تصميم هوية مفن" aria-label="مصر · ٢٠٢٤ · تكريم عن تصميم هوية مفن"><img src="/a/archive/egypt-2024-s.webp" alt="مصر، ٢٠٢٤" width="525" height="700" loading="lazy" decoding="async"><span class="cap"><b><span lang="ar">مصر</span><small><span lang="ar">تكريم عن تصميم هوية مفن</span></small></b><time datetime="2024">٢٠٢٤</time></span></button></li>
+    <li class="print" style="--rt:-1.42deg;--dy:29.5px;--s:0.829;--js:center"><button type="button" data-full="/a/archive/iraq-2024.webp" data-alt="العراق، ٢٠٢٤" data-cap="العراق · ٢٠٢٤ · توثيق مشروع NAFTAL" aria-label="العراق · ٢٠٢٤ · توثيق مشروع NAFTAL"><img src="/a/archive/iraq-2024-s.webp" alt="العراق، ٢٠٢٤" width="700" height="700" loading="lazy" decoding="async"><span class="cap"><b><span lang="ar">العراق</span><small><span lang="ar">توثيق مشروع NAFTAL</span></small></b><time datetime="2024">٢٠٢٤</time></span></button></li>
+    <li class="print" style="--rt:-2.41deg;--dy:13.5px;--s:0.885;--js:start"><button type="button" data-full="/a/archive/jeddah-2025-a.webp" data-alt="جدة، السعودية، ٢٠٢٥" data-cap="جدة، السعودية · ٢٠٢٥ · تغليف De Nata" aria-label="جدة، السعودية · ٢٠٢٥ · تغليف De Nata"><img src="/a/archive/jeddah-2025-a-s.webp" alt="جدة، السعودية، ٢٠٢٥" width="525" height="700" loading="lazy" decoding="async"><span class="cap"><b><span lang="ar">جدة، السعودية</span><small><span lang="ar">تغليف De Nata</span></small></b><time datetime="2025">٢٠٢٥</time></span></button></li>
+    <li class="print" style="--rt:-0.86deg;--dy:26.5px;--s:0.864;--js:end"><button type="button" data-full="/a/archive/damietta-2026.webp" data-alt="دمياط، مصر، ٢٠٢٦" data-cap="دمياط، مصر · ٢٠٢٦ · اجتماع مهم" aria-label="دمياط، مصر · ٢٠٢٦ · اجتماع مهم"><img src="/a/archive/damietta-2026-s.webp" alt="دمياط، مصر، ٢٠٢٦" width="525" height="700" loading="lazy" decoding="async"><span class="cap"><b><span lang="ar">دمياط، مصر</span><small><span lang="ar">اجتماع مهم</span></small></b><time datetime="2026">٢٠٢٦</time></span></button></li>
+    <li class="print" style="--rt:-2.55deg;--dy:6.4px;--s:0.880;--js:end"><button type="button" data-full="/a/archive/alexandria-2026.webp" data-alt="الإسكندرية، مصر، ٢٠٢٦" data-cap="الإسكندرية، مصر · ٢٠٢٦ · يوم عمل" aria-label="الإسكندرية، مصر · ٢٠٢٦ · يوم عمل"><img src="/a/archive/alexandria-2026-s.webp" alt="الإسكندرية، مصر، ٢٠٢٦" width="525" height="700" loading="lazy" decoding="async"><span class="cap"><b><span lang="ar">الإسكندرية، مصر</span><small><span lang="ar">يوم عمل</span></small></b><time datetime="2026">٢٠٢٦</time></span></button></li>
+    <li class="print" style="--rt:-0.74deg;--dy:13.5px;--s:0.884;--js:start"><button type="button" data-full="/a/archive/jeddah-2025-b.webp" data-alt="جدة، السعودية، ٢٠٢٥" data-cap="جدة، السعودية · ٢٠٢٥ · علبة De Nata" aria-label="جدة، السعودية · ٢٠٢٥ · علبة De Nata"><img src="/a/archive/jeddah-2025-b-s.webp" alt="جدة، السعودية، ٢٠٢٥" width="525" height="700" loading="lazy" decoding="async"><span class="cap"><b><span lang="ar">جدة، السعودية</span><small><span lang="ar">علبة De Nata</span></small></b><time datetime="2025">٢٠٢٥</time></span></button></li>
+    <li class="print" style="--rt:2.48deg;--dy:21.2px;--s:0.909;--js:start"><button type="button" data-full="/a/archive/ajman-2020.webp" data-alt="عجمان، الإمارات، ٢٠٢٠" data-cap="عجمان، الإمارات · ٢٠٢٠ · تغليف البريسم · أول أعمال أحمد عماد" aria-label="عجمان، الإمارات · ٢٠٢٠ · تغليف البريسم · أول أعمال أحمد عماد"><img src="/a/archive/ajman-2020-s.webp" alt="عجمان، الإمارات، ٢٠٢٠" width="700" height="525" loading="lazy" decoding="async"><span class="cap"><b><span lang="ar">عجمان، الإمارات</span><small><span lang="ar">تغليف البريسم · أول أعمال أحمد عماد</span></small></b><time datetime="2020">٢٠٢٠</time></span></button></li>
+    <li class="print" style="--rt:-1.00deg;--dy:28.5px;--s:0.917;--js:start"><button type="button" data-full="/a/archive/qatar-2024.webp" data-alt="قطر، ٢٠٢٤" data-cap="قطر · ٢٠٢٤ · كوب حلا" aria-label="قطر · ٢٠٢٤ · كوب حلا"><img src="/a/archive/qatar-2024-s.webp" alt="قطر، ٢٠٢٤" width="394" height="700" style="aspect-ratio:3/4" loading="lazy" decoding="async"><span class="cap"><b><span lang="ar">قطر</span><small><span lang="ar">كوب حلا</span></small></b><time datetime="2024">٢٠٢٤</time></span></button></li>
+  </ul>
+  <div class="afoot"><span><span lang="ar">٨ صور · ٢٠٢٠–٢٠٢٦</span></span><span><span lang="ar">اضغط على أي صورة لتكبيرها</span></span></div>
+  <div class="aview" id="aview" hidden role="dialog" aria-modal="true" aria-label="عرض الصورة">
+    <button type="button" class="ax" aria-label="إغلاق"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <button type="button" class="ap" aria-label="السابقة"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button type="button" class="an" aria-label="التالية"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    <figure><img alt=""><figcaption></figcaption></figure>
+  </div>
+</section>
+<script>
+(function(){
+  var list=document.getElementById('prints'),v=document.getElementById('aview');if(!list||!v)return;
+  var items=[].slice.call(list.querySelectorAll('.print')),img=v.querySelector('img'),cap=v.querySelector('figcaption'),cur=0,last=null;
+  function show(i){cur=(i+items.length)%items.length;var b=items[cur].querySelector('button');img.src=b.dataset.full;img.alt=b.dataset.alt;cap.textContent=b.dataset.cap}
+  function open(i){last=document.activeElement;show(i);v.hidden=false;document.documentElement.style.overflow='hidden';v.querySelector('.ax').focus()}
+  function close(){v.hidden=true;document.documentElement.style.overflow='';if(last)last.focus()}
+  items.forEach(function(li,i){li.querySelector('button').addEventListener('click',function(){open(i)})});
+  v.querySelector('.ax').addEventListener('click',close);
+  v.querySelector('.ap').addEventListener('click',function(){show(cur-1)});
+  v.querySelector('.an').addEventListener('click',function(){show(cur+1)});
+  v.addEventListener('click',function(e){if(e.target===v)close()});
+  document.addEventListener('keydown',function(e){if(v.hidden)return;var rtl=document.documentElement.dir==='rtl';
+    if(e.key==='Escape')close();else if(e.key==='ArrowRight')show(cur+(rtl?-1:1));else if(e.key==='ArrowLeft')show(cur+(rtl?1:-1))});
+  var more=document.getElementById('amore');if(more)more.addEventListener('click',function(){list.classList.add('all');more.hidden=true});
+})();
+</script>
+<!-- ARCHIVE-END -->
 
 <section class="cta card-field field wrap" id="cta" data-ink="dark" aria-labelledby="h-cta">
   <div class="chead">
