@@ -734,6 +734,20 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
 .board .social .feat:focus-visible{outline:2px solid var(--electric);outline-offset:4px;border-radius:8px}
 @media (max-width:900px){.board .wm,.board .ac{min-height:150px}.board .social .feat{margin-inline-start:0;flex-basis:100%}}
 /* ===== /Footer pass ===== */
+/* ===== Footer pass: shorter wordmark row, Behance features ===== */
+.board .wm,.board .ac{min-height:228px}
+.board .wm .g3d{width:clamp(84px,8.4vw,122px)}
+.board .social{align-items:center}
+.board .social .feat{margin-inline-start:auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;text-decoration:none}
+.board .social .feat>span{font:500 var(--s-small) var(--f);color:#4A5874}
+.board .social .feat .rb{display:flex;gap:6px;align-self:flex-start;margin-top:-16px}
+.board .social .feat i{display:grid;place-items:center;width:34px;height:48px;padding-bottom:9px;box-sizing:border-box;
+  background:var(--rb);color:var(--rf);font:600 15px/1 var(--f-en);font-style:normal;letter-spacing:.01em;
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%);transition:transform .35s var(--ease)}
+.board .social .feat:hover i{transform:translateY(3px)}
+.board .social .feat:focus-visible{outline:2px solid var(--electric);outline-offset:4px;border-radius:8px}
+@media (max-width:900px){.board .wm,.board .ac{min-height:150px}.board .social .feat{margin-inline-start:0;margin-top:6px}.board .social .feat .rb{margin-top:0}}
+/* ===== /Footer pass ===== */
 </style><script>document.addEventListener('contextmenu',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'||n.tagName==='CANVAS'))e.preventDefault()});document.addEventListener('dragstart',function(e){var n=e.target;if(n&&(n.tagName==='IMG'||n.tagName==='VIDEO'))e.preventDefault()})</script></head>
 <body>
 <a class="skip" href="#main"><span lang="en">Skip to content</span></a>
@@ -884,8 +898,8 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
       <a href="https://www.instagram.com/mavero.agency/" target="_blank" rel="noopener">Instagram @mavero.agency</a>
       <a href="https://x.com/maveroagency" target="_blank" rel="noopener">X @maveroagency</a>
       <a href="https://www.linkedin.com/company/maveroagency/" target="_blank" rel="noopener">LinkedIn @maveroagency</a>
-      <!-- FEAT-START --><a class="feat" href="https://www.behance.net/mavero-agency" target="_blank" rel="noopener" aria-label="Featured on Behance: Graphic Design, Illustrator"><span><span lang="en">Featured on Behance</span></span><b><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M1 0h10a1 1 0 0 1 1 1v14.2l-6-3.9-6 3.9V1a1 1 0 0 1 1-1z" fill="currentColor"/></svg>Graphic Design</b><b><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M1 0h10a1 1 0 0 1 1 1v14.2l-6-3.9-6 3.9V1a1 1 0 0 1 1-1z" fill="currentColor"/></svg>Illustrator</b></a><!-- FEAT-END -->
-    </div>
+      <!-- FEAT-START --><a class="feat" href="https://www.behance.net/mavero-agency" target="_blank" rel="noopener" aria-label="Featured on Behance: Graphic Design, Illustrator"><span><span lang="en">Featured on Behance</span></span><span class="rb" aria-hidden="true"><i style="--rb:#A8895C;--rf:#FFFFFF" title="Featured in Graphic Design">Gr</i><i style="--rb:#330000;--rf:#FF9A00" title="Featured in Illustrator">Ai</i></span></a><!-- FEAT-END -->
+          </div>
     <div class="legal glass">
       <span><b dir="ltr">Mavero Graphic Design Services</b></span>
       <span><span lang="en">Registered with the General Authority for Investment, Egypt</span></span>
