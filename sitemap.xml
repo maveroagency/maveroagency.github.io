@@ -152,4 +152,12 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://maveroagency.com/ar/work.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://maveroagency.com/en/work.html"/>
   </url>
+  <url><loc>https://maveroagency.com/ar/boukak.html</loc><lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maveroagency.com/ar/boukak.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maveroagency.com/en/boukak.html"/>
+  </url>
+  <url><loc>https://maveroagency.com/en/boukak.html</loc><lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://maveroagency.com/ar/boukak.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maveroagency.com/en/boukak.html"/>
+  </url>
 </urlset>
