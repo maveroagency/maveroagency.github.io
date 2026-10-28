@@ -190,7 +190,7 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
 :root[lang="en"] .tile:hover .cap .go{transform:rotate(45deg)}
 .wide{grid-column:span 2}
 @media(max-width:900px){.bento>.tile[href="normea.html"]{grid-column:1 / -1}}
-.tile.full{grid-column:1 / -1;min-height:clamp(380px,42vw,600px)}
+.tile.full{grid-column:1 / -1;min-height:clamp(380px,42vw,600px)}.pair{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:inherit}.pair>.tile{min-height:clamp(320px,30vw,480px)}@media(max-width:600px){.pair{grid-template-columns:minmax(0,1fr)}.pair>.tile{min-height:clamp(260px,70vw,360px)}}
 .allwork{display:flex;justify-content:center;margin-top:36px}
 .allwork .btn{background:var(--navy)}
 .allwork .btn:hover{background:var(--electric)}
@@ -609,8 +609,9 @@ h1,h2,h3{font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balanc
     <p data-rise style="--i:1"><span lang="en">Every project began with a business question and ended as a working system.</span></p>
   </div>
   <div class="bento">
-    <a class="tile full" href="boukak.html" data-rise><div class="pic"><img src="/a/boukak/boukak-01-hero-paper-vs-pass.webp" alt="بطاقة بوكك الرقمية فوق بطاقات الأختام الورقية" width="1920" height="1080" loading="lazy"></div><div class="cap glass"><span><b>Boukak</b><br><span lang="en">Case study · Identity</span></span><i class="go" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></i></div></a>
-    <a class="tile full" href="wash.html" data-rise><div class="pic"><img src="/a/wash/w10.webp" alt="واجهة محطة Wash مع شعار الرقم ٣" width="2000" height="1125" loading="lazy"></div><div class="cap glass"><span><b>Wash</b><br><span lang="en">Case study · Identity · Riyadh</span></span><i class="go" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></i></div></a>
+    <div class="pair"><a class="tile" href="wash.html" data-rise><div class="pic"><img src="/a/wash/w10.webp" alt="واجهة محطة Wash مع شعار الرقم ٣" width="2000" height="1125" loading="lazy"></div><div class="cap glass"><span><b>Wash</b><br><span lang="en">Case study · Identity · Riyadh</span></span><i class="go" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></i></div></a>
+      <a class="tile" href="boukak.html" data-rise><div class="pic"><img src="/a/boukak/boukak-01-hero-paper-vs-pass.webp" alt="بطاقة بوكك الرقمية فوق بطاقات الأختام الورقية" width="1920" height="1080" loading="lazy"></div><div class="cap glass"><span><b>Boukak</b><br><span lang="en">Case study · Identity</span></span><i class="go" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></i></div></a>
+    </div>
     <a class="tile wide" href="menera.html" data-rise><div class="pic"><img src="/a/menerra-folder.webp" alt="ملف وأوراق رسمية بهوية Menera على خلفية خضراء" width="1800" height="1012" loading="lazy"></div><div class="cap glass"><span><b>Menera</b><br><span lang="en">Identity · Print system</span></span><i class="go" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></i></div></a>
     <div class="say" data-rise style="--i:1"><p><span lang="en">Strategy,<br>identity,<br>a system that grows.</span></p><small><span lang="en">That is all we make. We make it well.</span></small></div>
     <div class="say sig" data-rise><span class="live"><i></i><span lang="en">Intake open</span></span><p><span lang="en">We take a limited number of projects each quarter.</span></p><small><span lang="en">Every brief is reviewed with care.</span></small></div>
